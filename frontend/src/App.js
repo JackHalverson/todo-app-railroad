@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './App.css';
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
@@ -23,11 +24,13 @@ const TodoApp = () => {
   };
 
   return (
-    <div>
+    <div className='list'>
       <h1>Todo List</h1>
+      <div className='listings'>
       {todos.map(todo => (
         <div key={todo.id}>{todo.number}. {todo.description}</div>
       ))}
+      </div>
       <input
         value={newTodo}
         onChange={e => setNewTodo(e.target.value)}
