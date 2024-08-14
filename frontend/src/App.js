@@ -8,14 +8,14 @@ const TodoApp = () => {
 
   // Fetch todos on component mount
   useEffect(() => {
-    axios.get('todo-backend-production-2ac8.up.railway.app')
+    axios.get('https://todo-backend-production-2ac8.up.railway.app')
       .then(response => setTodos(response.data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   // Add a new todo
   const addTodo = () => {
-    axios.post('todo-backend-production-2ac8.up.railway.app', { number: todos.length + 1, description: newTodo })
+    axios.post('https://todo-backend-production-2ac8.up.railway.app', { number: todos.length + 1, description: newTodo })
       .then(response => {
         setTodos([...todos, response.data]);
         setNewTodo("");  // Clear input after submission
